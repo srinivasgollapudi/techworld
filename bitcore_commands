@@ -1,0 +1,52 @@
+npm install -g bitcore
+
+http://bitcore.io/playground/#/address
+
+
+
+var privkey = new bitcore.PrivateKey();
+privkey.toString();
+
+privkey.toAddress().toString();
+bitcore
+
+
+
+var privkey = new bitcore.PrivateKey();
+var pubkey = privkey.toPublicKey();
+privkey.toString();
+pubkey.toString();
+
+
+--Lab 
+
+https://chain.so
+
+var privKey = new bitcore.PrivateKey(bitcore.Networks.testnet);
+// testnet bitcoin network
+var exportKey = privKey.toWIF(bitcore.Networks.testnet);
+exportKey.toString();
+cUU2bGvs67AoN57yLn2PMgx6FBJUWbWDHYF8vYjrHy7gnE84YhP1
+
+var addr = privKey.toAddress( bitcore.Networks.testnet );
+addr.toString();
+'n4moLN6EUmmMwP9YtYrx4mU5WFM8fUgFZK'
+
+
+var privKeyPaper = 'cPyWsMSiAhxeVjYgZ6APnoc5UQt8w4kSurXoVszZywxd4JwbpbSN';
+var utxo = {
+'txid':'db2bfaacd421767e41ab662eedc813fed90a03b5d3f6cddf4f157b4188c6ce35',
+'outputIndex':0,
+'address':'mnUpD6TonrEfyC4MJrbj4u6qfuuUAwDRuZ',
+'script':'76a9144c614c9395739322551fd448be230aca87f7694188ac',
+'satoshis':100000
+};
+
+
+// The transaction: goal is OP_Return
+var transaction = new bitcore.Transaction().from(utxo).to('n4moLN6EUmmMwP9YtYrx4mU5WFM8fUgFZK', 50000).addData('This is a test also').sign(privKeyPaper);
+
+<Transaction: 010000000135cec688417b154fdfcdf6d3b5030ad9fe13c8ed2e66ab417e7621d4acfa2bdb000000006b483045022100a92fd7bb6cd329b7ce59289ea620d6cf603100ec4234e2b2a2f69e78485b331802203ab9648c67455170148f100fc03f2180d1c56213de54a3d49309a176b644dabd0121033fd81ab67ad01e0b31d35f029cb19f34a48be7686667fd6b4db5137c39b281b4ffffffff0250c30000000000001976a914ff19a72370651f7f62091e86de66e6c3b6f868b188ac0000000000000000156a13546869732069732061207465737420616c736f00000000>
+>
+
+https://live.blockcypher.com/ ( post above transcation here )
